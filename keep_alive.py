@@ -5,7 +5,6 @@ app = Flask('')
 
 @app.route('/',methods=['GET'])
 def main():
-#  print("被監測到了喔")
 	return '嗚呼我上線囉'
 
 def run():

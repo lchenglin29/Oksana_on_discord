@@ -1,6 +1,10 @@
 from main import main
 import keep_alive
 import asyncio
+from flask import Flask
 
-keep_alive.keep_alive()
-asyncio.run(main())
+app = Flask('')
+@app.route('/')
+def home():
+  asyncio.run(main())
+  return "ok"
