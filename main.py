@@ -14,8 +14,6 @@ def textmsg(user):
 
 @bot.event
 async def on_ready():
-  await bot.tree.sync()
-  await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.streaming, name="/開始遊戲", url="https://youtu.be/dQw4w9WgXcQ"))
   channel = bot.get_channel(1204285939124281425)
   await channel.send('啊？啊？我醒了💦')
   print(f'{bot.user}已上線。')
@@ -39,21 +37,6 @@ async def load_extensions():
     for filename in os.listdir("./cmds"):
         if filename.endswith(".py"):
             await bot.load_extension(f"cmds.{filename[:-3]}")
-
-@bot.tree.command(name = "load", description = "載入Cog")
-async def app_load(interaction,extension:str):
-  await bot.load_extension(f"cmds.{extension}")
-  await interaction.response.send_message(f"已載入{extension}")
-
-@bot.tree.command(name = "unload", description = "卸載Cog")
-async def app_unload(interaction,extension:str):
-  await bot.unload_extension(f"cmds.{extension}")
-  await interaction.response.send_message(f"已卸載{extension}")
-  
-@bot.tree.command(name = "reload", description = "重新載入Cog")
-async def app_reload(interaction,extension:str):
-  await bot.reload_extension(f"cmds.{extension}")
-  await interaction.response.send_message(f"已重新載入{extension}")
 
 @bot.event
 async def on_command_error(ctx, error):
