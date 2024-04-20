@@ -1,10 +1,16 @@
+import flask
+from flask import Flask
 import discord
 from discord.ext import commands
 from discord import app_commands
 import os,asyncio,datetime,aiohttp
 
 bot_token = os.environ['TOKEN']
-import keep_alive
+
+app = Flask(__name__)
+@app.route('/')
+def hi():
+    return 'hi'
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='r!', intents = intents)
@@ -62,6 +68,5 @@ async def main():
         await bot.start(bot_token)
 
 if __name__ == "__main__":
-    keep_alive.keep_alive()
     asyncio.run(main())
-  #太強了👍
+app.run(host='0.0.0.0', port=8080)
