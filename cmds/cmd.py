@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from core.core import Cog_Extension
-from oriana.oriana import clear_chat
+from oksana.oksana import clear_chat
 
 class cmds(Cog_Extension):
     @commands.command()

@@ -7,7 +7,7 @@ import keep_alive
 bot_token = os.environ['TOKEN']
 
 intents = discord.Intents.all()
-bot = commands.Bot(command_prefix='r!', intents = intents)
+bot = commands.Bot(command_prefix='o!', intents = intents)
 
 def textmsg(user):
   return f'回覆:{user}'
