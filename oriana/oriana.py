@@ -169,4 +169,10 @@ def calling_gemini_vision_api(text, image_base64_string):
     else:
       print(response.json())
       return "Error"
-      
+
+def clear_chat(id):
+  try:
+    chat_history.pop(str(id))
+    return True
+  except:
+    return False
